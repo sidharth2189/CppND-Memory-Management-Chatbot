@@ -54,8 +54,9 @@ ChatBot::ChatBot(const ChatBot &source)
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
-    // load image into heap memory
-    _image = source._image;
+    // load image into heap memory (deep copy)
+    _image = new wxBitmap();
+    *_image = *source._image;
 }
 
 ChatBot& ChatBot::operator=(const ChatBot &source)
@@ -70,8 +71,9 @@ ChatBot& ChatBot::operator=(const ChatBot &source)
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
-    // load image into heap memory
-    _image = source._image;
+    // load image into heap memory (deep copy)
+    _image = new wxBitmap();
+    *_image = *source._image;
 
     return *this;
 }
